@@ -10,15 +10,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?acc
     accessToken: 'pk.eyJ1Ijoic2FtLXBvcCIsImEiOiJjamhucjhhNXgwNTE0MzZwYWQxenprNG5kIn0.9c-GiLb45NYrZeAiy3TZ6w'
 }).addTo(mymap);
 
-// Mapbox map
-/*
-mapboxgl.accessToken =
-    'pk.eyJ1Ijoic2FtLXBvcCIsImEiOiJjamhucjhhNXgwNTE0MzZwYWQxenprNG5kIn0.9c-GiLb45NYrZeAiy3TZ6w';
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/outdoors-v10'
-});
-*/
+
 
 var marker = L.marker(baseCoords);
 var polygon = L.polygon([
@@ -49,4 +41,40 @@ function onMapClick(e) {
         .openOn(mymap);
 }
 
-mymap.on('click', onMapClick);
+
+
+// show my current location
+// var myLoc = mymap.locate({
+//     setView: true,
+//     maxZoom: 16
+// });
+
+// functions that can be called when my location is found and on error
+function onLocationFound(e) {
+    var radius = e.accuracy / 2;
+
+    L.marker(e.latlng).addTo(mymap)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+    L.circle(e.latlng, radius).addTo(mymap);
+}
+
+function onLocationError(e) {
+    alert(e.message);
+}
+mymap.on('locationfound', onLocationFound);
+mymap.on('locationerror', onLocationError);
+
+
+// var myIcon = L.icon({
+//     iconUrl: './assets/images/wmIcon.png',
+//     iconSize: [38, 95],
+//     iconAnchor: [22, 94],
+//     popupAnchor: [-3, -76],
+//     shadowUrl: 'my-icon-shadow.png',
+//     shadowSize: [68, 95],
+//     shadowAnchor: [22, 94]
+// });
+// L.marker(baseCoords, {
+//     icon: myIcon
+// }).addTo(mymap);
