@@ -2,6 +2,24 @@
 var baseCoords = [38.889488, -77.035285];
 var mymap = L.map('mapid').setView(baseCoords, 16);
 
+var currentLocIcon = L.icon({
+    iconUrl: './assets/images/map-marker-person.png',
+    iconSize: [38, 42],
+    iconAnchor: [20, 36],
+    popupAnchor: [-3, -76],
+    shadowUrl: '',
+    shadowSize: [68, 95],
+    shadowAnchor: [22, 94]
+});
+var poiIcon = L.icon({
+    iconUrl: './assets/images/map-marker.png',
+    iconSize: [38, 42],
+    iconAnchor: [20, 44],
+    popupAnchor: [-3, -76],
+    shadowUrl: '',
+    shadowSize: [68, 95],
+    shadowAnchor: [22, 94]
+});
 //mapbox.streets-satellite <- maybe use
 L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2FtLXBvcCIsImEiOiJjamhucjhhNXgwNTE0MzZwYWQxenprNG5kIn0.9c-GiLb45NYrZeAiy3TZ6w', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -13,7 +31,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?acc
 
 
 
-var marker = L.marker(baseCoords);
+var marker = L.marker(baseCoords, {
+    icon: poiIcon
+});
 var polygon = L.polygon([
     [38.892239, -77.052317],
     [38.888548, -77.052666],
@@ -51,9 +71,15 @@ var myLoc = mymap.locate({
 
 // functions that can be called when my location is found and on error
 function onLocationFound(e) {
+    // mymap.removeLayer(currentMarker);
+
     var radius = e.accuracy / 2;
 
-    L.marker(e.latlng).addTo(mymap)
+    var currentMarker = L.marker(e.latlng, {
+        icon: currentLocIcon
+    });
+
+    currentMarker.addTo(mymap)
         .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
     L.circle(e.latlng, radius).addTo(mymap);
@@ -66,15 +92,6 @@ mymap.on('locationfound', onLocationFound);
 mymap.on('locationerror', onLocationError);
 
 
-// var myIcon = L.icon({
-//     iconUrl: './assets/images/wmIcon.png',
-//     iconSize: [38, 95],
-//     iconAnchor: [22, 94],
-//     popupAnchor: [-3, -76],
-//     shadowUrl: 'my-icon-shadow.png',
-//     shadowSize: [68, 95],
-//     shadowAnchor: [22, 94]
-// });
 // L.marker(baseCoords, {
 //     icon: myIcon
 // }).addTo(mymap);
