@@ -1,5 +1,6 @@
 // Leaflet
-var mymap = L.map('mapid').setView([38.889488, -77.035285], 16);
+var baseCoords = [38.889488, -77.035285];
+var mymap = L.map('mapid').setView(baseCoords, 16);
 
 //mapbox.streets-satellite <- maybe use
 L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2FtLXBvcCIsImEiOiJjamhucjhhNXgwNTE0MzZwYWQxenprNG5kIn0.9c-GiLb45NYrZeAiy3TZ6w', {
@@ -18,3 +19,5 @@ var map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/outdoors-v10'
 });
 */
+
+var marker = L.marker(baseCoords).addTo(mymap);
