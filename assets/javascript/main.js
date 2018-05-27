@@ -1,4 +1,4 @@
-// Leaflet
+// Global Variables
 var baseCoords = [38.889488, -77.035285];
 var mymap = L.map('mapid').setView(baseCoords, 16);
 
@@ -20,8 +20,7 @@ var map = new mapboxgl.Map({
 });
 */
 
-var marker = L.marker(baseCoords).addTo(mymap);
-
+var marker = L.marker(baseCoords);
 var polygon = L.polygon([
     [38.892239, -77.052317],
     [38.888548, -77.052666],
@@ -31,4 +30,23 @@ var polygon = L.polygon([
     [38.887526, -77.033639],
     [38.887579, -77.014342],
     [38.892089, -77.014761]
-]).addTo(mymap);
+]);
+
+// add to map
+marker.addTo(mymap);
+polygon.addTo(mymap);
+
+// binding objects to popups
+marker.bindPopup("Start here").openPopup();
+polygon.bindPopup("<b>The National Mall<b>");
+
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+}
+
+mymap.on('click', onMapClick);
