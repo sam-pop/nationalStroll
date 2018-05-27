@@ -1,6 +1,18 @@
-/* leaflet */
-
 #mapid {
     height: 700px;
     width: 100%;
+}
+
+@media screen and (min-width:320px) {
+    #mapid {
+        height: 450px;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:667px) {
+    #mapid {
+        height: 450px;
+        width: 100%;
+    }
 }
