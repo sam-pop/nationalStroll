@@ -31,7 +31,7 @@ polygon.addTo(mymap);
 
 // binding objects to popups
 marker.bindPopup("Start here").openPopup();
-polygon.bindPopup("<b>The National Mall<b>");
+// polygon.bindPopup("<b>The National Mall<b>");
 
 var popup = L.popup();
 
@@ -42,10 +42,12 @@ function onMapClick(e) {
 mymap.on('click', onMapClick);
 
 // show my current location
-// var myLoc = mymap.locate({
-//     setView: true,
-//     maxZoom: 16
-// });
+var myLoc = mymap.locate({
+    setView: true,
+    maxZoom: 16,
+    watch: true,
+    enableHighAccuracy: true
+});
 
 // functions that can be called when my location is found and on error
 function onLocationFound(e) {
