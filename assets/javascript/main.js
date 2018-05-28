@@ -12,6 +12,12 @@ var nationalMallPoly = L.polygon([
     [38.892089, -77.014761]
 ]);
 
+var NMwestMarkers = L.geoJSON(NMwest, {
+    onEachFeature: function (feature, layer) {
+        layer.bindPopup(feature.properties.name);
+    }
+}).addTo(mymap);
+
 var currentLocIcon = L.icon({
     iconUrl: './assets/images/map-marker-person.png',
     iconSize: [38, 42],
@@ -38,9 +44,11 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?acc
 var popup = L.popup();
 
 function onMapClick(e) {
-    popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(mymap);
+    // popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(mymap);
+    // console.log(e.layer._leaflet_id);
+    NMwestMarkers.removeLayer(e.layer._leaflet_id);
 }
-mymap.on('click', onMapClick);
+
 
 // show my current location //FIXME: save for later
 // var myLoc = mymap.locate({
@@ -72,9 +80,7 @@ mymap.on('locationerror', onLocationError);
 
 $(document).ready(function () {
     // displays the West markers
-    var NMwestMarkers = L.geoJSON(NMwest, {
-        onEachFeature: function (feature, layer) {
-            layer.bindPopup(feature.properties.name);
-        }
-    }).addTo(mymap);
+
+
+    NMwestMarkers.on('click', onMapClick);
 });
