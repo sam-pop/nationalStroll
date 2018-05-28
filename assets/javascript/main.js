@@ -46,7 +46,8 @@ var popup = L.popup();
 function onMapClick(e) {
     // popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(mymap);
     // console.log(e.layer._leaflet_id);
-    NMwestMarkers.removeLayer(e.layer._leaflet_id);
+
+    // NMwestMarkers.removeLayer(e.layer._leaflet_id);
 }
 
 
