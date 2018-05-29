@@ -3,7 +3,8 @@ var NMwest = {
   "features": [{
       "type": "Feature",
       "properties": {
-        "name": "Washington Monument"
+        "name": "Washington Monument",
+        "modalID": "washigtonMonument"
       },
       "geometry": {
         "type": "Point",
@@ -15,7 +16,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "WWII Memorial"
+        "name": "WWII Memorial",
+        "modalID": "WWII"
       },
       "geometry": {
         "type": "Point",
@@ -27,7 +29,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Best View Point"
+        "name": "Best View Point",
+        "modalID": "bestViewPoint"
       },
       "geometry": {
         "type": "Point",
@@ -39,7 +42,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Vietnam Veterans Memorial"
+        "name": "Vietnam Veterans Memorial",
+        "modalID": "vietnamVeterans"
       },
       "geometry": {
         "type": "Point",
@@ -49,7 +53,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "The Three Soldiers"
+        "name": "The Three Soldiers",
+        "modalID": "theThreeSoldiers"
       },
       "geometry": {
         "type": "Point",
@@ -61,7 +66,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Vietnam Women's Memorial"
+        "name": "Vietnam Women's Memorial",
+        "modalID": "vietnamWomens"
       },
       "geometry": {
         "type": "Point",
@@ -73,7 +79,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Lincoln Memorial"
+        "name": "Lincoln Memorial",
+        "modalID": "lincolnMemorial"
       },
       "geometry": {
         "type": "Point",
@@ -85,7 +92,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Arts of Peace Statues"
+        "name": "Arts of Peace Statues",
+        "modalID": "artsOfPeace"
       },
       "geometry": {
         "type": "Point",
@@ -97,7 +105,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Art of War Statue"
+        "name": "Art of War Statue",
+        "modalID": "artOfWar"
       },
       "geometry": {
         "type": "Point",
@@ -109,7 +118,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "MLK Jr Memorial"
+        "name": "MLK Jr Memorial",
+        "modalID": "MLK"
       },
       "geometry": {
         "type": "Point",
@@ -119,7 +129,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "FDR Memorial"
+        "name": "FDR Memorial",
+        "modalID": "FDR"
       },
       "geometry": {
         "type": "Point",
@@ -131,7 +142,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Jefferson Memorial"
+        "name": "Jefferson Memorial",
+        "modalID": "jefferson"
       },
       "geometry": {
         "type": "Point",
@@ -143,7 +155,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Reflecting Pool"
+        "name": "Reflecting Pool",
+        "modalID": "reflectingPool"
       },
       "geometry": {
         "type": "Point",
@@ -155,7 +168,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "DC War Memorial"
+        "name": "DC War Memorial",
+        "modalID": "DCWar"
       },
       "geometry": {
         "type": "Point",
@@ -167,7 +181,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Korean War Veterans Memorial"
+        "name": "Korean War Veterans Memorial",
+        "modalID": "koreanWar"
       },
       "geometry": {
         "type": "Point",
@@ -179,7 +194,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "John Ericsson Memorial"
+        "name": "John Ericsson Memorial",
+        "modalID": "johnEricsson"
       },
       "geometry": {
         "type": "Point",
@@ -191,7 +207,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "56 Signers of the Declaration of Independence Memorial"
+        "name": "56 Signers of the Declaration of Independence Memorial",
+        "modalID": "56Signers"
       },
       "geometry": {
         "type": "Point",
@@ -203,7 +220,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Jefferson Pier Stone"
+        "name": "Jefferson Pier Stone",
+        "modalID": "jeffersonPier"
       },
       "geometry": {
         "type": "Point",
@@ -215,7 +233,8 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "John Paul Jones Memorial"
+        "name": "John Paul Jones Memorial",
+        "modalID": "johnPaulJones"
       },
       "geometry": {
         "type": "Point",

@@ -14,7 +14,7 @@ var nationalMallPoly = L.polygon([
 
 var NMwestMarkers = L.geoJSON(NMwest, {
     onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties.name);
+        layer.bindPopup(feature.properties.name + "<br>" + "<a class='waves-effect waves-light btn modal-trigger' href='#" + feature.properties.modalID + "'>Modal</a>");
     }
 }).addTo(mymap);
 
@@ -81,7 +81,8 @@ mymap.on('locationerror', onLocationError);
 
 $(document).ready(function () {
     // displays the West markers
-
-
     NMwestMarkers.on('click', onMapClick);
+    // init modal
+    $('.modal').modal();
+
 });
