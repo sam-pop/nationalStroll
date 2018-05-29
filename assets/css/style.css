@@ -3,18 +3,6 @@ body {
     margin: 0;
 }
 
-/* html,
-body,
-#mapid {
-    height: 100%;
-    width: 100vw;
-} */
-
-#mapid {
-    height: 450;
-    width: 100vw;
-}
-
 @media screen and (min-width:320px) {
     #mapid {
         height: 450px;
@@ -22,10 +10,19 @@ body,
     }
 }
 
+/* For smaller screens */
+
 @media screen and (max-width:667px) {
     #mapid {
         height: 450px;
         width: 100vw;
+    }
+    .modalPic {
+        width: 100%;
+        text-align: center;
+        box-shadow: 5px 5px 5px #ccc;
+        -moz-box-shadow: 5px 5px 5px #ccc;
+        margin-bottom: 10px;
     }
 }
 
