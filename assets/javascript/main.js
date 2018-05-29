@@ -1,6 +1,8 @@
-// Global Variables
+// Variables
 var baseCoords = [38.888912, -77.039485];
 var mymap = L.map('mapid').setView(baseCoords, 16);
+
+// National mall polygon
 var nationalMallPoly = L.polygon([
     [38.892239, -77.052317],
     [38.888548, -77.052666],
@@ -12,24 +14,10 @@ var nationalMallPoly = L.polygon([
     [38.892089, -77.014761]
 ]);
 
-var NMwestMarkers = L.geoJSON(NMwest, {
-    onEachFeature: function (feature, layer) {
-        createModals(feature);
-        layer.bindPopup(feature.properties.name + "<br>" + "<a class='waves-effect waves-light modal-trigger' href='#" + feature.properties.modalID + "'>More Info</a>");
-    }
-}).addTo(mymap);
+// Add the NM polygon to the map
+// nationalMallPoly.addTo(mymap); //FIXME: save for later
 
-var currentLocIcon = L.icon({
-    iconUrl: './assets/images/map-marker-person.png',
-    iconSize: [38, 42],
-    iconAnchor: [20, 36],
-    popupAnchor: [-3, -76],
-    shadowUrl: '',
-    shadowSize: [68, 95],
-    shadowAnchor: [22, 94]
-});
-
-
+// Creating the base tile Layer and adding it to the map
 L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2FtLXBvcCIsImEiOiJjamhucjhhNXgwNTE0MzZwYWQxenprNG5kIn0.9c-GiLb45NYrZeAiy3TZ6w', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -38,21 +26,26 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?acc
     accessToken: 'pk.eyJ1Ijoic2FtLXBvcCIsImEiOiJjamhucjhhNXgwNTE0MzZwYWQxenprNG5kIn0.9c-GiLb45NYrZeAiy3TZ6w'
 }).addTo(mymap);
 
+// Create the NM-West markers from the POI json file, bind their popups to the modals and add them to the map
+var NMwestMarkers = L.geoJSON(NMwest, {
+    onEachFeature: function (feature, layer) {
+        createModals(feature);
+        layer.bindPopup(feature.properties.name + "<br>" + "<a class='waves-effect waves-light modal-trigger' href='#" + feature.properties.modalID + "'>More Info</a>");
+    }
+}).addTo(mymap);
 
-// add to map the NM polygon
-// nationalMallPoly.addTo(mymap); //FIXME: save for later
+// Current location custom icon
+// var currentLocIcon = L.icon({
+//     iconUrl: './assets/images/map-marker-person.png',
+//     iconSize: [38, 42],
+//     iconAnchor: [20, 36],
+//     popupAnchor: [-3, -76],
+//     shadowUrl: '',
+//     shadowSize: [68, 95],
+//     shadowAnchor: [22, 94]
+// });
 
-var popup = L.popup();
-
-function onMapClick(e) {
-    // popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(mymap);
-    // console.log(e.layer._leaflet_id);
-
-    // NMwestMarkers.removeLayer(e.layer._leaflet_id);
-}
-
-
-// show my current location //FIXME: save for later
+// Show my current location //FIXME: save for later
 // var myLoc = mymap.locate({
 //     setView: true,
 //     maxZoom: 16,
@@ -60,35 +53,35 @@ function onMapClick(e) {
 //     enableHighAccuracy: true
 // });
 
-// current location success / error functions
-function onLocationFound(e) {
-    // mymap.removeLayer(currentMarker); //FIXME: save for later
+// // Current location success function
+// function onLocationFound(e) {
+//     // mymap.removeLayer(currentMarker); //FIXME: save for later
 
-    var radius = e.accuracy / 2;
-    var currentMarker = L.marker(e.latlng, {
-        icon: currentLocIcon
-    });
-    currentMarker.addTo(mymap)
-        .bindPopup("You are within " + radius + " meters from this point").openPopup();
-    L.circle(e.latlng, radius).addTo(mymap);
-}
+//     var radius = e.accuracy / 2;
+//     var currentMarker = L.marker(e.latlng, {
+//         icon: currentLocIcon
+//     });
+//     currentMarker.addTo(mymap)
+//         .bindPopup("You are within " + radius + " meters from this point").openPopup();
+//     L.circle(e.latlng, radius).addTo(mymap);
+// }
+// // Current location error function
+// function onLocationError(e) {
+//     alert(e.message);
+// }
 
-function onLocationError(e) {
-    alert(e.message);
-}
+// mymap.on('locationfound', onLocationFound);
+// mymap.on('locationerror', onLocationError);
 
-mymap.on('locationfound', onLocationFound);
-mymap.on('locationerror', onLocationError);
-
-
+// Creating the modal (DOM) and fetching summary from Wikipedia API
 function createModals(feature) {
     var apiURL = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + feature.properties.name;
     $.ajax({
         type: "GET",
         dataType: "jsonp",
         url: apiURL,
-        success: function (json) { // on API success
-            var page = json.query.pages;
+        success: function (data) { // on API success
+            var page = data.query.pages;
             var key = Object.keys(page)[0];
             var result = page[key].extract;
             result = result.replace(/(?:\r\n|\r|\n)/g, '<br /><br />'); //replaces line breaks in the text with html line break
@@ -106,9 +99,11 @@ function createModals(feature) {
     });
 }
 
+// DOCUMENT READY 
 $(document).ready(function () {
-    // init modal (with a delay to let the createModals function time to finish)
+    // init materialize modal (with a delay to let the createModals function time to finish manipulating the DOM)
     setTimeout(function () {
         $('.modal').modal();
     }, 1000);
-});
+
+}); // END OF document ready
