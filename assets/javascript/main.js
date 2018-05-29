@@ -75,7 +75,7 @@ var NMwestMarkers = L.geoJSON(NMwest, {
 
 // Creating the modal (DOM) and fetching summary from Wikipedia API
 function createModals(feature) {
-    var apiURL = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + feature.properties.name;
+    var apiURL = "https://en.wikipedia.org/w/api.php?format=json&action=query&pithumbsize=300&prop=extracts|pageimages&exintro=&explaintext=&titles=" + feature.properties.name;
     $.ajax({
         type: "GET",
         dataType: "jsonp",
@@ -83,14 +83,23 @@ function createModals(feature) {
         success: function (data) { // on API success
             var page = data.query.pages;
             var key = Object.keys(page)[0];
-            var result = page[key].extract;
-            result = result.replace(/(?:\r\n|\r|\n)/g, '<br /><br />'); //replaces line breaks in the text with html line break
+            var summary = page[key].extract;
+            var picSrc = '';
+            if (page[key].thumbnail)
+                picSrc = page[key].thumbnail.source;
+
+            summary = summary.replace(/(?:\r\n|\r|\n)/g, '<br /><br />'); //replaces line breaks in the text with html line break
+
             var modal = $('<div>').addClass('modal').attr('id', feature.properties.modalID).append(
                 [$('<div>').addClass('modal-content').append([$('<div>').addClass('closeBtn').append($('<a>').addClass('modal-close').attr('href', '#!').append($('<i>').addClass('material-icons').text('close'))),
-                        $('<h4>').text(feature.properties.name), $('<p>').html(result)
+                        $('<h4>').text(feature.properties.name), $('<img>').attr({
+                            'src': picSrc,
+                            'class': 'modalPic'
+                        }), $('<p>').html(summary)
                     ])
                     // , $('<div>').addClass('modal-footer').append($('<p>').text(''))
                 ]);
+
             $('#modals').append(modal);
         },
         error: function () { // on API error
