@@ -97,7 +97,10 @@ function createModals(feature) {
                             'class': 'modalPic materialboxed',
                             'data-caption': feature.properties.name,
                             'width': '300'
-                        }), $('<p>').html(summary)
+                        }), $('<p>').html(summary), $('<p>').css({
+                            'font-size': '0.8em',
+                            'font-style': 'italic'
+                        }).html("Source: <a href='https://en.wikipedia.org/wiki/" + feature.properties.name + "' target='_blank'>Wikipedia.org</a>")
                     ])
                     // , $('<div>').addClass('modal-footer').append($('<p>').text(''))
                 ]);
