@@ -30,7 +30,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?acc
 var NMwestMarkers = L.geoJSON(NMwest, {
     onEachFeature: function (feature, layer) {
         createModals(feature);
-        layer.bindPopup(feature.properties.name + "<br>" + "<a class='waves-effect waves-light modal-trigger' href='#" + feature.properties.modalID + "'><b>~ Click for more info ~</b></a>");
+        layer.bindPopup(feature.properties.name + "<br>" + "<a class='waves-effect waves-light modal-trigger' href='#" + feature.properties.modalID + "'><b>Click for more info</b></a>");
     }
 }).addTo(mymap);
 
@@ -95,6 +95,7 @@ function createModals(feature) {
                         $('<h4>').text(feature.properties.name), $('<img>').attr({
                             'src': picSrc,
                             'class': 'modalPic materialboxed',
+                            'data-caption': feature.properties.name,
                             'width': '300'
                         }), $('<p>').html(summary)
                     ])
