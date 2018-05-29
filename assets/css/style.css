@@ -1,12 +1,22 @@
 body {
-    padding: 0;
-    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
-@media screen and (min-width:320px) {
+main {
+    flex: 1 0 auto;
+}
+
+@media screen and (min-width:667px) {
     #mapid {
         height: 450px;
         width: 80%;
+    }
+    .map {
+        -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
     }
 }
 
@@ -15,7 +25,7 @@ body {
 @media screen and (max-width:667px) {
     #mapid {
         height: 450px;
-        width: 100vw;
+        width: 100%;
     }
     .modalPic {
         width: 100%;
@@ -24,6 +34,16 @@ body {
         -moz-box-shadow: 5px 5px 5px #ccc;
         margin-bottom: 10px;
     }
+}
+
+.modalPic {
+    text-align: center;
+    float: right;
+    box-shadow: 5px 5px 5px #ccc;
+    -moz-box-shadow: 5px 5px 5px #ccc;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .closeBtn {
@@ -51,12 +71,7 @@ h4 {
     right: 10px;
 }
 
-.modalPic {
-    text-align: center;
-    float: right;
-    box-shadow: 5px 5px 5px #ccc;
-    -moz-box-shadow: 5px 5px 5px #ccc;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+footer {
+    background-color: rgba(134, 134, 134, 0.548);
+    color: white;
 }
