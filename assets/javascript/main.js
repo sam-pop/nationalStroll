@@ -75,7 +75,7 @@ var NMwestMarkers = L.geoJSON(NMwest, {
 
 // Creating the modal (DOM) and fetching summary from Wikipedia API
 function createModals(feature) {
-    var apiURL = "https://en.wikipedia.org/w/api.php?format=json&action=query&pithumbsize=300&prop=extracts|pageimages&exintro=&explaintext=&titles=" + feature.properties.name;
+    var apiURL = "https://en.wikipedia.org/w/api.php?format=json&action=query&pithumbsize=500&prop=extracts|pageimages&exintro=&explaintext=&titles=" + feature.properties.name;
     $.ajax({
         type: "GET",
         dataType: "jsonp",
@@ -94,7 +94,8 @@ function createModals(feature) {
                 [$('<div>').addClass('modal-content').append([$('<div>').addClass('closeBtn').append($('<a>').addClass('modal-close').attr('href', '#!').append($('<i>').addClass('material-icons').text('close'))),
                         $('<h4>').text(feature.properties.name), $('<img>').attr({
                             'src': picSrc,
-                            'class': 'modalPic'
+                            'class': 'modalPic materialboxed',
+                            'width': '300'
                         }), $('<p>').html(summary)
                     ])
                     // , $('<div>').addClass('modal-footer').append($('<p>').text(''))
@@ -113,6 +114,7 @@ $(document).ready(function () {
     // init materialize modal (with a delay to let the createModals function time to finish manipulating the DOM)
     setTimeout(function () {
         $('.modal').modal();
+        $('.materialboxed').materialbox();
     }, 1000);
 
 }); // END OF document ready
