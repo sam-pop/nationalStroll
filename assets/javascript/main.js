@@ -1,5 +1,4 @@
 // Global Variables
-// var baseCoords = [38.889488, -77.035285];
 var baseCoords = [38.888912, -77.039485];
 var mymap = L.map('mapid').setView(baseCoords, 16);
 var nationalMallPoly = L.polygon([
@@ -91,22 +90,19 @@ function createModals(feature) {
         success: function (json) { // on API success
             var page = json.query.pages;
             var key = Object.keys(page)[0];
-            result = page[key].extract;
-            var modal = $('<div>').addClass('modal').attr('id', feature.properties.modalID).append($('<div>').addClass('modal-content').append([$('<div>').addClass('closeBtn').append($('<a>').addClass('modal-close').attr('href', '#!').append($('<i>').addClass('material-icons').text('close'))), $('<h4>').text(feature.properties.name), $('<p>').text(result)]));
+            var result = page[key].extract;
+            var modal = $('<div>').addClass('modal').attr('id', feature.properties.modalID).append($('<div>').addClass('modal-content').append([$('<div>').addClass('closeBtn').append($('<a>').addClass('modal-close').attr('href', '#!').append($('<i>').addClass('material-icons').text('close'))), $('<h4>').text(feature.properties.name), $('<div>').text(result)]));
             $('#modals').append(modal);
         },
         error: function () { // on API error
             alert("FAIL!");
         }
     });
-
-
 }
 
 $(document).ready(function () {
-    // displays the West markers
-    NMwestMarkers.on('click', onMapClick);
-    // init modal
-    $('.modal').modal();
-
+    // init modal (with a delay to let the createModals function time to finish)
+    setTimeout(function () {
+        $('.modal').modal();
+    }, 1000);
 });
