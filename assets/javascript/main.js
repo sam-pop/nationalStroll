@@ -83,8 +83,25 @@ mymap.on('locationerror', onLocationError);
 
 
 function createModals(feature) {
+    var apiURL = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + feature.properties.name;
+    $.ajax({
+        type: "GET",
+        dataType: "jsonp",
+        async: "false",
+        url: apiURL,
+        success: function (json) { // on API success
+            var page = json.query.pages;
+            var key = Object.keys(page)[0];
+            var result = page[key].extract;
+        },
+        error: function () { // on API error
+            alert("FAIL!");
+        }
+    });
+
     var modal = $('<div>').addClass('modal').attr('id', feature.properties.modalID).append($('<div>').addClass('modal-content').append([$('<div>').addClass('closeBtn').append($('<a>').addClass('modal-close').attr('href', '#!').append($('<i>').addClass('material-icons').text('close'))), $('<h4>').text(feature.properties.name), $('<p>').text('text')]));
     $('#modals').append(modal);
+
 }
 
 $(document).ready(function () {
