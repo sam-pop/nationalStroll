@@ -46,3 +46,10 @@ body,
 h4 {
     text-align: center;
 }
+
+.modal-footer {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    right: 10px;
+}

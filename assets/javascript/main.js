@@ -91,8 +91,13 @@ function createModals(feature) {
             var page = json.query.pages;
             var key = Object.keys(page)[0];
             var result = page[key].extract;
-            result = result.replace(/(?:\r\n|\r|\n)/g, '<br /><br />');
-            var modal = $('<div>').addClass('modal').attr('id', feature.properties.modalID).append($('<div>').addClass('modal-content').append([$('<div>').addClass('closeBtn').append($('<a>').addClass('modal-close').attr('href', '#!').append($('<i>').addClass('material-icons').text('close'))), $('<h4>').text(feature.properties.name), $('<p>').html(result)]));
+            result = result.replace(/(?:\r\n|\r|\n)/g, '<br /><br />'); //replaces line breaks in the text with html line break
+            var modal = $('<div>').addClass('modal').attr('id', feature.properties.modalID).append(
+                [$('<div>').addClass('modal-content').append([$('<div>').addClass('closeBtn').append($('<a>').addClass('modal-close').attr('href', '#!').append($('<i>').addClass('material-icons').text('close'))),
+                        $('<h4>').text(feature.properties.name), $('<p>').html(result)
+                    ])
+                    // , $('<div>').addClass('modal-footer').append($('<p>').text(''))
+                ]);
             $('#modals').append(modal);
         },
         error: function () { // on API error
