@@ -28,3 +28,21 @@ body,
         width: 100vw;
     }
 }
+
+.closeBtn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.closeBtn a {
+    color: grey;
+}
+
+.leaflet-popup-content {
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+}

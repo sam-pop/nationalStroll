@@ -1,5 +1,6 @@
 // Global Variables
-var baseCoords = [38.889488, -77.035285];
+// var baseCoords = [38.889488, -77.035285];
+var baseCoords = [38.888912, -77.039485];
 var mymap = L.map('mapid').setView(baseCoords, 16);
 var nationalMallPoly = L.polygon([
     [38.892239, -77.052317],
@@ -14,7 +15,8 @@ var nationalMallPoly = L.polygon([
 
 var NMwestMarkers = L.geoJSON(NMwest, {
     onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties.name + "<br>" + "<a class='waves-effect waves-light btn modal-trigger' href='#" + feature.properties.modalID + "'>Modal</a>");
+        createModals(feature);
+        layer.bindPopup(feature.properties.name + "<br>" + "<a class='waves-effect waves-light modal-trigger' href='#" + feature.properties.modalID + "'>More Info</a>");
     }
 }).addTo(mymap);
 
@@ -78,6 +80,12 @@ function onLocationError(e) {
 
 mymap.on('locationfound', onLocationFound);
 mymap.on('locationerror', onLocationError);
+
+
+function createModals(feature) {
+    var modal = $('<div>').addClass('modal').attr('id', feature.properties.modalID).append($('<div>').addClass('modal-content').append([$('<div>').addClass('closeBtn').append($('<a>').addClass('modal-close').attr('href', '#!').append($('<i>').addClass('material-icons').text('close'))), $('<h4>').text(feature.properties.name), $('<p>').text('text')]));
+    $('#modals').append(modal);
+}
 
 $(document).ready(function () {
     // displays the West markers
