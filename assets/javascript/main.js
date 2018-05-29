@@ -87,20 +87,19 @@ function createModals(feature) {
     $.ajax({
         type: "GET",
         dataType: "jsonp",
-        async: "false",
         url: apiURL,
         success: function (json) { // on API success
             var page = json.query.pages;
             var key = Object.keys(page)[0];
-            var result = page[key].extract;
+            result = page[key].extract;
+            var modal = $('<div>').addClass('modal').attr('id', feature.properties.modalID).append($('<div>').addClass('modal-content').append([$('<div>').addClass('closeBtn').append($('<a>').addClass('modal-close').attr('href', '#!').append($('<i>').addClass('material-icons').text('close'))), $('<h4>').text(feature.properties.name), $('<p>').text(result)]));
+            $('#modals').append(modal);
         },
         error: function () { // on API error
             alert("FAIL!");
         }
     });
 
-    var modal = $('<div>').addClass('modal').attr('id', feature.properties.modalID).append($('<div>').addClass('modal-content').append([$('<div>').addClass('closeBtn').append($('<a>').addClass('modal-close').attr('href', '#!').append($('<i>').addClass('material-icons').text('close'))), $('<h4>').text(feature.properties.name), $('<p>').text('text')]));
-    $('#modals').append(modal);
 
 }
 

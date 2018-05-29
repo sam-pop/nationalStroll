@@ -16,7 +16,7 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "WWII Memorial",
+        "name": "National World War II Memorial",
         "modalID": "WWII"
       },
       "geometry": {
@@ -26,19 +26,19 @@ var NMwest = {
         ]
       }
     },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Best View Point",
-        "modalID": "bestViewPoint"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-77.0367282629013,
-          38.88947122889294
-        ]
-      }
-    },
+    // {
+    //   "type": "Feature",
+    //   "properties": {
+    //     "name": "Best View Point",
+    //     "modalID": "bestViewPoint"
+    //   },
+    //   "geometry": {
+    //     "type": "Point",
+    //     "coordinates": [-77.0367282629013,
+    //       38.88947122889294
+    //     ]
+    //   }
+    // },
     {
       "type": "Feature",
       "properties": {
@@ -92,7 +92,7 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Arts of Peace Statues",
+        "name": "The Arts of War and The Arts of Peace",
         "modalID": "artsOfPeace"
       },
       "geometry": {
@@ -105,7 +105,7 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Art of War Statue",
+        "name": "The Arts of War and The Arts of Peace",
         "modalID": "artOfWar"
       },
       "geometry": {
@@ -118,7 +118,7 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "MLK Jr Memorial",
+        "name": "Martin Luther King Jr. Memorial",
         "modalID": "MLK"
       },
       "geometry": {
@@ -129,7 +129,7 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "FDR Memorial",
+        "name": "Franklin Delano Roosevelt Memorial",
         "modalID": "FDR"
       },
       "geometry": {
@@ -155,7 +155,7 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Reflecting Pool",
+        "name": "Lincoln Memorial Reflecting Pool",
         "modalID": "reflectingPool"
       },
       "geometry": {
@@ -168,7 +168,7 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "DC War Memorial",
+        "name": "District of Columbia War Memorial",
         "modalID": "DCWar"
       },
       "geometry": {
@@ -194,7 +194,7 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "John Ericsson Memorial",
+        "name": "John Ericsson National Memorial",
         "modalID": "johnEricsson"
       },
       "geometry": {
@@ -207,7 +207,7 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "56 Signers of the Declaration of Independence Memorial",
+        "name": "Memorial to the 56 Signers of the Declaration of Independence",
         "modalID": "56Signers"
       },
       "geometry": {
@@ -220,7 +220,7 @@ var NMwest = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Jefferson Pier Stone",
+        "name": "Jefferson Pier",
         "modalID": "jeffersonPier"
       },
       "geometry": {
