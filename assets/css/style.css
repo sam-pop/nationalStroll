@@ -27,6 +27,9 @@
     .stars {
         display: none;
     }
+    .brand-logo {
+        font-size: 1.2em !important;
+    }
 }
 
 body {
