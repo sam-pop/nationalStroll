@@ -1,5 +1,5 @@
 // Variables
-var baseCoords = [38.888912, -77.039485];
+var baseCoords = [38.889463, -77.035146];
 var mymap = L.map('mapid').setView(baseCoords, 16);
 
 
