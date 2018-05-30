@@ -89,23 +89,11 @@ h4 {
 footer {
     background-color: rgba(134, 134, 134, 0.548);
     color: white;
-    /* background-image: url('../images/footer.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    text-shadow: 2px 2px 5px #000000; */
 }
 
 .brand-logo {
     font-size: 3em;
     text-shadow: 1px 1px 5px #505050;
-}
-
-.nav-wrapper {
-    /* background-image: url('../images/header.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; */
 }
 
 .logo {
