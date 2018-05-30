@@ -451,3 +451,142 @@ var NMeast = {
     }
   ]
 };
+
+
+
+var bathrooms = {
+  "type": "FeatureCollection",
+  "features": [{
+      "type": "Feature",
+      "properties": {
+        "name": "Abraham Lincoln Memorial | Public Bathroom"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.049848,
+          38.889067
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Constitution Gardens | Public Bathroom"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.045374,
+          38.890257
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "World War II Memorial | Public Bathroom"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.041397,
+          38.887975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "DC War Memorial | Public Bathroom"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.042769,
+          38.887964
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Martin Luther King Memorial | Public Bathroom"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0452,
+          38.886173
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Franklin D. Roosevelt Memorial (North) | Public Bathroom"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.044089,
+          38.884082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Franklin D. Roosevelt Memorial (North) | Public Bathroom"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.044089,
+          38.884082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Franklin D. Roosevelt Memorial (South) | Public Bathroom"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.041701,
+          38.882619
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Thomas Jefferson Memorial | Public Bathroom"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.036908,
+          38.881724
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sylvan Theater | Public Bathroom"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.034222,
+          38.888059
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Washington Monument | Public Bathroom"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.033369,
+          38.889428
+        ]
+      }
+    },
+  ]
+};

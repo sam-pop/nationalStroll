@@ -31,6 +31,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?acc
 // Creating layer groups
 var lgWest = L.layerGroup();
 var lgEast = L.layerGroup();
+var lgBathroom = L.layerGroup();
 
 // Create the NM-West markers from the POI json file, bind their popups to the modals and add them to the map
 var NMwestMarkers = L.geoJSON(NMwest, {
@@ -50,10 +51,19 @@ var NMeastMarkers = L.geoJSON(NMeast, {
     }
 });
 
+// Create the Public Bathrooms markers from the POI json file & bind their popups
+var publicBathrooms = L.geoJSON(bathrooms, {
+    onEachFeature: function (feature, layer) {
+        layer.addTo(lgBathroom);
+        layer.bindPopup(feature.properties.name);
+    }
+});
+
 // Createing the Overlay controls
 var overlays = {
     "West": lgWest,
-    "East": lgEast
+    "East": lgEast,
+    "Bathrooms": lgBathroom
 };
 L.control.layers(null, overlays, {
     collapsed: false
