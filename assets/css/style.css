@@ -124,3 +124,8 @@ footer {
     color: rgb(170, 67, 67);
     text-shadow: 1px 1px 1px #444444;
 }
+
+.mapNav {
+    font-family: 'IM Fell French Canon SC', serif;
+    color: rgb(36, 36, 36);
+}
