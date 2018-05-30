@@ -27,13 +27,41 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?acc
     accessToken: 'pk.eyJ1Ijoic2FtLXBvcCIsImEiOiJjamhucjhhNXgwNTE0MzZwYWQxenprNG5kIn0.9c-GiLb45NYrZeAiy3TZ6w'
 }).addTo(mymap);
 
+
+// Creating layer groups
+var lgWest = L.layerGroup();
+var lgEast = L.layerGroup();
+
 // Create the NM-West markers from the POI json file, bind their popups to the modals and add them to the map
 var NMwestMarkers = L.geoJSON(NMwest, {
     onEachFeature: function (feature, layer) {
+        layer.addTo(lgWest);
         createModals(feature);
         layer.bindPopup(feature.properties.name + "<br>" + "<a class='waves-effect waves-light modal-trigger' href='#" + feature.properties.modalID + "'><b>Click here for more info</b></a>");
     }
+});
+
+// Create the NM-East markers from the POI json file, bind their popups to the modals and add them to the map
+var NMeastMarkers = L.geoJSON(NMeast, {
+    onEachFeature: function (feature, layer) {
+        layer.addTo(lgEast);
+        createModals(feature);
+        layer.bindPopup(feature.properties.name + "<br>" + "<a class='waves-effect waves-light modal-trigger' href='#" + feature.properties.modalID + "'><b>Click here for more info</b></a>");
+    }
+});
+
+// Createing the Overlay controls
+var overlays = {
+    "West": lgWest,
+    "East": lgEast
+};
+L.control.layers(overlays, null, {
+    collapsed: false
 }).addTo(mymap);
+
+// Adding the default map layer
+lgWest.addTo(mymap);
+
 
 // Creating the modal (DOM) and fetching summary from Wikipedia API
 function createModals(feature) {

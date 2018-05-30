@@ -245,3 +245,21 @@ var NMwest = {
     }
   ]
 };
+
+
+var NMeast = {
+  "type": "FeatureCollection",
+  "features": [{
+    "type": "Feature",
+    "properties": {
+      "name": "National Museum of African American History and Culture",
+      "modalID": "museumAA"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-77.032679,
+        38.891024
+      ]
+    }
+  }]
+};
