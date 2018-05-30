@@ -3,8 +3,6 @@ var baseCoords = [38.888912, -77.039485];
 var mymap = L.map('mapid').setView(baseCoords, 16);
 
 
-
-
 // National mall polygon
 var nationalMallPoly = L.polygon([
     [38.892239, -77.052317],
@@ -21,7 +19,6 @@ var nationalMallPoly = L.polygon([
 // nationalMallPoly.addTo(mymap);
 
 // Creating the base tile Layer and adding it to the map
-
 L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2FtLXBvcCIsImEiOiJjamhucjhhNXgwNTE0MzZwYWQxenprNG5kIn0.9c-GiLb45NYrZeAiy3TZ6w', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -34,7 +31,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?acc
 var NMwestMarkers = L.geoJSON(NMwest, {
     onEachFeature: function (feature, layer) {
         createModals(feature);
-        layer.bindPopup(feature.properties.name + "<br>" + "<a class='waves-effect waves-light modal-trigger' href='#" + feature.properties.modalID + "'><b>Click for more info</b></a>");
+        layer.bindPopup(feature.properties.name + "<br>" + "<a class='waves-effect waves-light modal-trigger' href='#" + feature.properties.modalID + "'><b>Click here for more info</b></a>");
     }
 }).addTo(mymap);
 
