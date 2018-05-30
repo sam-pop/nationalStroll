@@ -3,10 +3,6 @@ body {
     min-height: 100vh;
     flex-direction: column;
     margin: 0 auto;
-    background-image: url('../images/bg.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
 }
 
 main {
@@ -19,7 +15,6 @@ main {
         width: 100%;
     }
     .map {
-        margin-top: 10%;
         -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
     }
@@ -39,6 +34,9 @@ main {
         box-shadow: 5px 5px 5px #ccc;
         -moz-box-shadow: 5px 5px 5px #ccc;
         margin-bottom: 10px;
+    }
+    .stars {
+        display: none;
     }
 }
 
@@ -78,7 +76,7 @@ h4 {
 }
 
 .alertToast {
-    background-color: rgba(226, 135, 74, 0.849);
+    background-color: rgb(170, 67, 67);
 }
 
 .alertToast a {
@@ -87,7 +85,7 @@ h4 {
 }
 
 footer {
-    background-color: rgba(134, 134, 134, 0.548);
+    background-color: rgb(170, 67, 67);
     color: white;
 }
 
@@ -97,14 +95,24 @@ footer {
 }
 
 .logo {
+    background-color: rgb(170, 67, 67);
     font-family: 'Tangerine', cursive;
-    padding-right: 10%;
-    font-size: 1.5em;
-    color: black;
-    padding-top: 20px;
+    font-size: 1.2em;
+    color: white;
     font-weight: 700;
+    text-shadow: 1px 1px 5px #505050;
 }
 
 .logo a {
-    color: black;
+    color: white;
+    text-shadow: 1px 1px 5px #505050;
+}
+
+.stars {
+    margin-top: 50px;
+    color: rgb(170, 67, 67);
+}
+
+blockquote {
+    border-left: 5px solid rgb(170, 67, 67);
 }
