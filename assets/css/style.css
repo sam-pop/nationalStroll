@@ -1,25 +1,9 @@
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    margin: 0 auto;
-    background-image: url('../images/bg.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-main {
-    flex: 1 0 auto;
-}
-
 @media screen and (min-width:667px) {
     #mapid {
         height: 450px;
         width: 100%;
     }
     .map {
-        margin-top: 10%;
         -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
     }
@@ -40,6 +24,40 @@ main {
         -moz-box-shadow: 5px 5px 5px #ccc;
         margin-bottom: 10px;
     }
+    .stars {
+        display: none;
+    }
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+a {
+    color: rgb(170, 67, 67);
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+h4 {
+    text-align: center;
+}
+
+blockquote {
+    border-left: 5px solid rgb(170, 67, 67);
+}
+
+footer {
+    font-family: 'IM Fell French Canon SC', serif;
+    background-color: rgb(170, 67, 67);
+    color: white;
+    box-shadow: 5px 0 10px #505050;
 }
 
 .modalPic {
@@ -50,6 +68,13 @@ main {
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.modal-footer {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    right: 10px;
 }
 
 .closeBtn {
@@ -66,19 +91,8 @@ main {
     text-align: center;
 }
 
-h4 {
-    text-align: center;
-}
-
-.modal-footer {
-    position: absolute;
-    padding: 0;
-    margin: 0;
-    right: 10px;
-}
-
 .alertToast {
-    background-color: rgba(226, 135, 74, 0.849);
+    background-color: rgb(170, 67, 67);
 }
 
 .alertToast a {
@@ -86,37 +100,32 @@ h4 {
     font-weight: 500;
 }
 
-footer {
-    background-color: rgba(134, 134, 134, 0.548);
-    color: white;
-    /* background-image: url('../images/footer.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    text-shadow: 2px 2px 5px #000000; */
-}
-
 .brand-logo {
     font-size: 3em;
     text-shadow: 1px 1px 5px #505050;
 }
 
-.nav-wrapper {
-    /* background-image: url('../images/header.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; */
-}
-
 .logo {
-    font-family: 'Tangerine', cursive;
-    padding-right: 10%;
-    font-size: 1.5em;
-    color: black;
-    padding-top: 20px;
-    font-weight: 700;
+    background-color: rgb(170, 67, 67);
+    font-family: 'IM Fell French Canon SC', serif;
+    font-size: 1.2em;
+    color: white;
+    text-shadow: 1px 1px 5px #444444;
+    box-shadow: 5px 0 10px #505050;
 }
 
 .logo a {
-    color: black;
+    color: white;
+    text-shadow: 1px 1px 5px #444444;
+}
+
+.stars {
+    margin-top: 50px;
+    color: rgb(170, 67, 67);
+    text-shadow: 1px 1px 1px #444444;
+}
+
+.mapNav {
+    font-family: 'IM Fell French Canon SC', serif;
+    color: rgb(36, 36, 36);
 }
