@@ -55,12 +55,13 @@ var overlays = {
     "West": lgWest,
     "East": lgEast
 };
-L.control.layers(overlays, null, {
+L.control.layers(null, overlays, {
     collapsed: false
 }).addTo(mymap);
 
-// Adding the default map layer
+// Adding the default map layers
 lgWest.addTo(mymap);
+lgEast.addTo(mymap);
 
 
 // Creating the modal (DOM) and fetching summary from Wikipedia API
