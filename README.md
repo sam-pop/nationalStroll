@@ -10,7 +10,7 @@
 
 The National Stroll was built to help people explore the National Mall in Washington, D.C. in an easy and convenient way by using an interactive map with summarized information and location of all the main monuments and memorials in the nation's capital.
 
-The website is fully mobile responsive to allow exploring and learning on the go.
+The website is fully responsive (built with mobile first in mind) to allow exploring and learning on the go.
 
 ## <a name="tech"></a>What I Used
 
