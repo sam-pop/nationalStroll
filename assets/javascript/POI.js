@@ -250,16 +250,171 @@ var NMwest = {
 var NMeast = {
   "type": "FeatureCollection",
   "features": [{
-    "type": "Feature",
-    "properties": {
-      "name": "National Museum of African American History and Culture",
-      "modalID": "museumAA"
+      "type": "Feature",
+      "properties": {
+        "name": "National Museum of African American History and Culture",
+        "modalID": "museumAA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.032679,
+          38.891024
+        ]
+      }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [-77.032679,
-        38.891024
-      ]
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "National Museum of American History",
+        "modalID": "museumAH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.030068, 38.891393]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "National Museum of Natural History",
+        "modalID": "museumNH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.026069, 38.891267]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "National Gallery of Art",
+        "modalID": "NGOA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.019975, 38.8913]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "National Air and Space Museum",
+        "modalID": "museumAS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.019868, 38.88816]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "National Museum of the American Indian",
+        "modalID": "museumAI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.01651, 38.888352]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ulysses S. Grant Memorial",
+        "modalID": "ulyssesSG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.012926, 38.88978]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Peace Monument",
+        "modalID": "peaceMonument"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.012347, 38.890632]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hirshhorn Museum and Sculpture Garden",
+        "modalID": "hirshhorn"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.022969, 38.888168]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Arts and Industries Building",
+        "modalID": "artsIndustries"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.024605, 38.888181]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "National Museum of African Art",
+        "modalID": "africanArt"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.025511, 38.887935]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Andrew Jackson Downing Urn (Launitz)",
+        "modalID": "andrewJacksonUrn"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.025415, 38.888406]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Arthur M. Sackler Gallery",
+        "modalID": "sacklerGallery"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.026444, 38.88798]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "S. Dillon Ripley Center",
+        "modalID": "ripleyCenter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.026868, 38.888565]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Smithsonian Institution Building",
+        "modalID": "smithsonianCastle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.026026, 38.888786]
+      }
     }
-  }]
+  ]
 };
