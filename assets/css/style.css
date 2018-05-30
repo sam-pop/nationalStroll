@@ -37,6 +37,10 @@ body {
     font-size: 16px;
 }
 
+a {
+    color: rgb(170, 67, 67);
+}
+
 main {
     flex: 1 0 auto;
 }

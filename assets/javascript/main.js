@@ -123,7 +123,7 @@ $(document).ready(function () {
     // Current conditions toast
     M.toast({
         classes: "alertToast",
-        html: "<a href='https://www.nps.gov/wamo/planyourvisit/conditions.htm' target='_blank'><i class='tiny material-icons'>notifications</i>&nbsp;Click here for current Alerts & Conditions </a>"
+        html: "<a href='https://www.nps.gov/nama/planyourvisit/conditions.htm' target='_blank'><i class='tiny material-icons'>notifications</i>&nbsp;Click here for current Alerts & Conditions </a>"
     });
 
 }); // END OF document ready
