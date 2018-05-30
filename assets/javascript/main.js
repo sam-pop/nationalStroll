@@ -113,7 +113,7 @@ $(document).ready(function () {
     setTimeout(function () {
         $('.modal').modal();
         $('.materialboxed').materialbox();
-    }, 1000);
+    }, 1500);
 
     // Current conditions toast
     M.toast({

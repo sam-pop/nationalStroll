@@ -415,6 +415,39 @@ var NMeast = {
         "type": "Point",
         "coordinates": [-77.026026, 38.888786]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "National Gallery of Art Sculpture Garden",
+        "modalID": "NGAgarden"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.022958, 38.891296]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "United States Botanic Garden",
+        "modalID": "botanicGarden"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.012883, 38.888148]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Freer Gallery of Art",
+        "modalID": "freerGA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.027208, 38.888106]
+      }
     }
   ]
 };
