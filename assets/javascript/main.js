@@ -2,6 +2,14 @@
 var baseCoords = [38.889463, -77.035146];
 var mymap = L.map('mapid').setView(baseCoords, 16);
 
+var bathroomIcon = L.icon({
+    iconUrl: './assets/images/bathroomRed.png',
+    shadowUrl: '',
+
+    iconSize: [30, 30], // size of the icon
+    iconAnchor: [15, 30], // point of the icon which will correspond to marker's location
+    popupAnchor: [0, -20] // point from which the popup should open relative to the iconAnchor
+});
 
 // National mall polygon
 var nationalMallPoly = L.polygon([
@@ -56,6 +64,11 @@ var publicBathrooms = L.geoJSON(bathrooms, {
     onEachFeature: function (feature, layer) {
         layer.addTo(lgBathroom);
         layer.bindPopup(feature.properties.name);
+    },
+    pointToLayer: function (geoJsonPoint, latlng) {
+        return L.marker(latlng, {
+            icon: bathroomIcon
+        });
     }
 });
 
