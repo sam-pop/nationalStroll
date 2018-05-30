@@ -63,7 +63,7 @@ var NMeastMarkers = L.geoJSON(NMeast, {
 var publicBathrooms = L.geoJSON(bathrooms, {
     onEachFeature: function (feature, layer) {
         layer.addTo(lgBathroom);
-        layer.bindPopup(feature.properties.name);
+        layer.bindPopup("<b>Public Restroom</b><br/>" + feature.properties.name);
     },
     pointToLayer: function (geoJsonPoint, latlng) {
         return L.marker(latlng, {
@@ -76,10 +76,10 @@ var publicBathrooms = L.geoJSON(bathrooms, {
 var overlays = {
     "West": lgWest,
     "East": lgEast,
-    "Bathrooms": lgBathroom
+    "Restrooms": lgBathroom
 };
 L.control.layers(null, overlays, {
-    collapsed: false
+    collapsed: true
 }).addTo(mymap);
 
 // Adding the default map layers

@@ -459,7 +459,7 @@ var bathrooms = {
   "features": [{
       "type": "Feature",
       "properties": {
-        "name": "Abraham Lincoln Memorial | Public Bathroom"
+        "name": "Abraham Lincoln Memorial"
       },
       "geometry": {
         "type": "Point",
@@ -471,7 +471,7 @@ var bathrooms = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Constitution Gardens | Public Bathroom"
+        "name": "Constitution Gardens"
       },
       "geometry": {
         "type": "Point",
@@ -483,7 +483,7 @@ var bathrooms = {
     {
       "type": "Feature",
       "properties": {
-        "name": "World War II Memorial | Public Bathroom"
+        "name": "World War II Memorial"
       },
       "geometry": {
         "type": "Point",
@@ -495,7 +495,7 @@ var bathrooms = {
     {
       "type": "Feature",
       "properties": {
-        "name": "DC War Memorial | Public Bathroom"
+        "name": "DC War Memorial"
       },
       "geometry": {
         "type": "Point",
@@ -507,7 +507,7 @@ var bathrooms = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Martin Luther King Memorial | Public Bathroom"
+        "name": "Martin Luther King Memorial"
       },
       "geometry": {
         "type": "Point",
@@ -519,7 +519,7 @@ var bathrooms = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Franklin D. Roosevelt Memorial (North) | Public Bathroom"
+        "name": "Franklin D. Roosevelt Memorial (North)"
       },
       "geometry": {
         "type": "Point",
@@ -531,7 +531,7 @@ var bathrooms = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Franklin D. Roosevelt Memorial (North) | Public Bathroom"
+        "name": "Franklin D. Roosevelt Memorial (North)"
       },
       "geometry": {
         "type": "Point",
@@ -543,7 +543,7 @@ var bathrooms = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Franklin D. Roosevelt Memorial (South) | Public Bathroom"
+        "name": "Franklin D. Roosevelt Memorial (South)"
       },
       "geometry": {
         "type": "Point",
@@ -555,7 +555,7 @@ var bathrooms = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Thomas Jefferson Memorial | Public Bathroom"
+        "name": "Thomas Jefferson Memorial"
       },
       "geometry": {
         "type": "Point",
@@ -567,7 +567,7 @@ var bathrooms = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Sylvan Theater | Public Bathroom"
+        "name": "Sylvan Theater"
       },
       "geometry": {
         "type": "Point",
@@ -579,7 +579,7 @@ var bathrooms = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Washington Monument | Public Bathroom"
+        "name": "Washington Monument"
       },
       "geometry": {
         "type": "Point",
