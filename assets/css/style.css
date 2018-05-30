@@ -63,6 +63,11 @@ footer {
     box-shadow: 5px 0 10px #505050;
 }
 
+.modal-content {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
 .modalPic {
     text-align: center;
     float: right;
