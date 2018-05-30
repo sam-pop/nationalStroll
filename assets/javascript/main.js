@@ -53,18 +53,16 @@ function createModals(feature) {
 
             var modal = $('<div>').addClass('modal').attr('id', feature.properties.modalID).append(
                 [$('<div>').addClass('modal-content').append([$('<div>').addClass('closeBtn').append($('<a>').addClass('modal-close').attr('href', '#!').append($('<i>').addClass('material-icons').text('close'))),
-                        $('<h4>').text(feature.properties.name), $('<img>').attr({
-                            'src': picSrc,
-                            'class': 'modalPic materialboxed',
-                            'data-caption': feature.properties.name,
-                            'width': '300'
-                        }), $('<p>').html(summary), $('<p>').css({
-                            'font-size': '0.8em',
-                            'font-style': 'italic'
-                        }).html("Source: <a href='https://en.wikipedia.org/wiki/" + feature.properties.name + "' target='_blank'>Wikipedia.org</a>")
-                    ])
-                    // , $('<div>').addClass('modal-footer').append($('<p>').text(''))
-                ]);
+                    $('<h4>').text(feature.properties.name), $('<img>').attr({
+                        'src': picSrc,
+                        'class': 'modalPic materialboxed',
+                        'data-caption': feature.properties.name,
+                        'width': '300'
+                    }), $('<p>').html(summary), $('<p>').css({
+                        'font-size': '0.8em',
+                        'font-style': 'italic'
+                    }).html("Source: <a href='https://en.wikipedia.org/wiki/" + feature.properties.name + "' target='_blank'>Wikipedia.org</a>")
+                ])]);
 
             $('#modals').append(modal);
         },
