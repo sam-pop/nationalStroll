@@ -99,6 +99,22 @@ footer {
     text-align: center;
 }
 
+[type="radio"]:checked+span:after,
+[type="radio"].with-gap:checked+span:after {
+    background-color: rgb(170, 67, 67);
+}
+
+[type="radio"]:checked+span:after,
+[type="radio"].with-gap:checked+span:before,
+[type="radio"].with-gap:checked+span:after {
+    border: 2px solid rgb(114, 45, 45);
+}
+
+label {
+    color: rgb(41, 40, 40);
+    ;
+}
+
 .alertToast {
     background-color: rgb(170, 67, 67);
 }
