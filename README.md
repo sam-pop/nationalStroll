@@ -20,4 +20,4 @@ The National Stroll was created using HTML5,CSS3, [Materialize CSS](https://mate
 ## <a name="demo"></a>Demo
 http://sam-pop.github.io/nationalStroll
 
-[![The National Stroll Screenshot](https://s22.postimg.cc/za4yo116p/The_National_Stroll.png)](http://sam-pop.github.io/nationalStroll)
+[![The National Stroll Screenshot](https://s15.postimg.cc/s0cl1znzf/The_National_Stroll.png)](http://sam-pop.github.io/nationalStroll)
