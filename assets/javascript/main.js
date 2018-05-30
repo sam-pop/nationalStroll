@@ -2,6 +2,9 @@
 var baseCoords = [38.888912, -77.039485];
 var mymap = L.map('mapid').setView(baseCoords, 16);
 
+
+
+
 // National mall polygon
 var nationalMallPoly = L.polygon([
     [38.892239, -77.052317],
@@ -18,6 +21,7 @@ var nationalMallPoly = L.polygon([
 // nationalMallPoly.addTo(mymap);
 
 // Creating the base tile Layer and adding it to the map
+
 L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2FtLXBvcCIsImEiOiJjamhucjhhNXgwNTE0MzZwYWQxenprNG5kIn0.9c-GiLb45NYrZeAiy3TZ6w', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -74,11 +78,16 @@ function createModals(feature) {
 
 // DOCUMENT READY 
 $(document).ready(function () {
+    // Change the zoom level for smaller screens (zoom-out)
+    if ($(window).width() < 667)
+        mymap.setView(baseCoords, 15);
+
     // Init materialize modal & materialbox (with a delay to let the createModals function time to finish manipulating the DOM)
     setTimeout(function () {
         $('.modal').modal();
         $('.materialboxed').materialbox();
     }, 1000);
+
     // Current conditions toast
     M.toast({
         classes: "alertToast",
