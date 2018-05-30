@@ -54,6 +54,7 @@ blockquote {
 }
 
 footer {
+    font-family: 'IM Fell French Canon SC', serif;
     background-color: rgb(170, 67, 67);
     color: white;
     box-shadow: 5px 0 10px #505050;
