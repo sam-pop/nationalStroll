@@ -15,7 +15,7 @@ var nationalMallPoly = L.polygon([
 ]);
 
 // Add the NM polygon to the map
-// nationalMallPoly.addTo(mymap); //FIXME: save for later
+// nationalMallPoly.addTo(mymap);
 
 // Creating the base tile Layer and adding it to the map
 L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2FtLXBvcCIsImEiOiJjamhucjhhNXgwNTE0MzZwYWQxenprNG5kIn0.9c-GiLb45NYrZeAiy3TZ6w', {
@@ -33,45 +33,6 @@ var NMwestMarkers = L.geoJSON(NMwest, {
         layer.bindPopup(feature.properties.name + "<br>" + "<a class='waves-effect waves-light modal-trigger' href='#" + feature.properties.modalID + "'><b>Click for more info</b></a>");
     }
 }).addTo(mymap);
-
-// Current location custom icon
-// var currentLocIcon = L.icon({
-//     iconUrl: './assets/images/map-marker-person.png',
-//     iconSize: [38, 42],
-//     iconAnchor: [20, 36],
-//     popupAnchor: [-3, -76],
-//     shadowUrl: '',
-//     shadowSize: [68, 95],
-//     shadowAnchor: [22, 94]
-// });
-
-// Show my current location //FIXME: save for later
-// var myLoc = mymap.locate({
-//     setView: true,
-//     maxZoom: 16,
-//     // watch: true,
-//     enableHighAccuracy: true
-// });
-
-// // Current location success function
-// function onLocationFound(e) {
-//     // mymap.removeLayer(currentMarker); //FIXME: save for later
-
-//     var radius = e.accuracy / 2;
-//     var currentMarker = L.marker(e.latlng, {
-//         icon: currentLocIcon
-//     });
-//     currentMarker.addTo(mymap)
-//         .bindPopup("You are within " + radius + " meters from this point").openPopup();
-//     L.circle(e.latlng, radius).addTo(mymap);
-// }
-// // Current location error function
-// function onLocationError(e) {
-//     alert(e.message);
-// }
-
-// mymap.on('locationfound', onLocationFound);
-// mymap.on('locationerror', onLocationError);
 
 // Creating the modal (DOM) and fetching summary from Wikipedia API
 function createModals(feature) {
@@ -108,7 +69,7 @@ function createModals(feature) {
             $('#modals').append(modal);
         },
         error: function () { // on API error
-            alert("FAIL!");
+            console.log("API ERROR, Fetching failed.");
         }
     });
 }
@@ -127,3 +88,48 @@ $(document).ready(function () {
     });
 
 }); // END OF document ready
+
+
+
+/* For future development
+
+// Current location custom icon
+var currentLocIcon = L.icon({
+    iconUrl: './assets/images/map-marker-person.png',
+    iconSize: [38, 42],
+    iconAnchor: [20, 36],
+    popupAnchor: [-3, -76],
+    shadowUrl: '',
+    shadowSize: [68, 95],
+    shadowAnchor: [22, 94]
+});
+
+// Show my current location 
+var myLoc = mymap.locate({
+    setView: true,
+    maxZoom: 16,
+    // watch: true,
+    enableHighAccuracy: true
+});
+
+// Current location success function
+function onLocationFound(e) {
+    // mymap.removeLayer(currentMarker); 
+
+    var radius = e.accuracy / 2;
+    var currentMarker = L.marker(e.latlng, {
+        icon: currentLocIcon
+    });
+    currentMarker.addTo(mymap)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+    L.circle(e.latlng, radius).addTo(mymap);
+}
+// Current location error function
+function onLocationError(e) {
+    alert(e.message);
+}
+
+mymap.on('locationfound', onLocationFound);
+mymap.on('locationerror', onLocationError);
+
+*/
