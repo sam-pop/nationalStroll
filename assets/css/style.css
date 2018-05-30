@@ -63,7 +63,7 @@ footer {
     box-shadow: 5px 0 10px #505050;
 }
 
-.modal-content {
+.modal {
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
 }
