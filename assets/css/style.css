@@ -1,3 +1,8 @@
+* {
+overflow:scroll;
+-webkit-overflow-scrolling: touch;
+}
+
 @media screen and (min-width:667px) {
     #mapid {
         height: 450px;
