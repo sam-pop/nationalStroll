@@ -14,7 +14,7 @@ The website is fully mobile responsive to allow exploring and learning on the go
 
 ## <a name="tech"></a>What I Used
 
-The National Stroll was created using HTML5,CSS3, [Materialize CSS](https://materializecss.com/), JavaScript, jQuery, [Leaflet JS](https://leafletjs.com/) (using geoJSON) and the [Wikipedia API](https://www.mediawiki.org/wiki/API:Main_page).
+The National Stroll was created using HTML5,CSS3, [Materialize CSS](https://materializecss.com/), JavaScript, jQuery, [Leaflet JS](https://leafletjs.com/) (utilizing GeoJSON) and the [Wikipedia API](https://www.mediawiki.org/wiki/API:Main_page).
 
 
 ## <a name="demo"></a>Demo
