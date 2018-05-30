@@ -43,6 +43,8 @@ function createModals(feature) {
         dataType: "jsonp",
         url: apiURL,
         success: function (data) { // on API success
+
+            // accessing the relevent info
             var page = data.query.pages;
             var key = Object.keys(page)[0];
             var summary = page[key].extract;
