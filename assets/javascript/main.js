@@ -115,13 +115,15 @@ function createModals(feature) {
 
 // DOCUMENT READY 
 $(document).ready(function () {
-    // init materialize modal (with a delay to let the createModals function time to finish manipulating the DOM)
+    // Init materialize modal & materialbox (with a delay to let the createModals function time to finish manipulating the DOM)
     setTimeout(function () {
         $('.modal').modal();
         $('.materialboxed').materialbox();
     }, 1000);
+    // Current conditions toast
     M.toast({
-        html: "<a href='https://www.nps.gov/wamo/planyourvisit/conditions.htm' target='_blank'><i class='tiny material-icons'>announcement</i>Please check the National Mall Alerts</a>"
-    })
+        classes: "alertToast",
+        html: "<a href='https://www.nps.gov/wamo/planyourvisit/conditions.htm' target='_blank'><i class='tiny material-icons'>notifications</i>&nbsp;Click here for current Alerts & Conditions </a>"
+    });
 
 }); // END OF document ready

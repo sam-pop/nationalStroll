@@ -3,6 +3,10 @@ body {
     min-height: 100vh;
     flex-direction: column;
     margin: 0 auto;
+    background-image: url('../images/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 main {
@@ -12,10 +16,10 @@ main {
 @media screen and (min-width:667px) {
     #mapid {
         height: 450px;
-        width: 80%;
+        width: 100%;
     }
     .map {
-        margin-top: 30px;
+        margin-top: 10%;
         -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
     }
@@ -73,7 +77,46 @@ h4 {
     right: 10px;
 }
 
+.alertToast {
+    background-color: rgba(226, 135, 74, 0.849);
+}
+
+.alertToast a {
+    color: white;
+    font-weight: 500;
+}
+
 footer {
     background-color: rgba(134, 134, 134, 0.548);
     color: white;
+    /* background-image: url('../images/footer.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-shadow: 2px 2px 5px #000000; */
+}
+
+.brand-logo {
+    font-size: 3em;
+    text-shadow: 1px 1px 5px #505050;
+}
+
+.nav-wrapper {
+    /* background-image: url('../images/header.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+}
+
+.logo {
+    font-family: 'Tangerine', cursive;
+    padding-right: 10%;
+    font-size: 1.5em;
+    color: black;
+    padding-top: 20px;
+    font-weight: 700;
+}
+
+.logo a {
+    color: black;
 }
