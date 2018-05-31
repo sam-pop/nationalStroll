@@ -78,9 +78,17 @@ var overlays = {
     "East": lgEast,
     "Restrooms": lgBathroom
 };
-L.control.layers(null, overlays, {
-    collapsed: true
-}).addTo(mymap);
+
+//  Creating the control layer (collapsed on smaller screens)
+if ($(window).width() < 667) {
+    L.control.layers(null, overlays, {
+        collapsed: true
+    }).addTo(mymap);
+} else {
+    L.control.layers(null, overlays, {
+        collapsed: false
+    }).addTo(mymap);
+}
 
 // Adding the default map layers
 lgWest.addTo(mymap);
