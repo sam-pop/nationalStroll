@@ -25,3 +25,11 @@ http://sam-pop.github.io/nationalStroll
 ### Mobile
 
 [![Mobile](https://s8.postimg.cc/t9v42i0n9/NMmobile.jpg)](http://sam-pop.github.io/nationalStroll)
+
+---
+
+#### Future development
+
+- Add search functionality to the map.
+- Add the user current location on the map.
+- Add a list of all existing POIs. 
