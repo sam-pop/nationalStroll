@@ -132,7 +132,7 @@ lgWest.addTo(mymap);
 lgEast.addTo(mymap);
 
 // Creating the modal (DOM) and fetching summary from Wikipedia API
-const createModals = feature => {
+function createModals(feature) {
   const apiURL =
     "https://en.wikipedia.org/w/api.php?format=json&action=query&pithumbsize=500&prop=extracts|pageimages&exintro=&explaintext=&titles=" +
     feature.properties.name;
@@ -199,7 +199,7 @@ const createModals = feature => {
       console.log("API ERROR, Fetching failed.");
     }
   });
-};
+}
 
 // DOCUMENT READY
 $(document).ready(function() {
