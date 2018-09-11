@@ -2,9 +2,9 @@
 
 ## Table of Contents
 
-* [Description](#desc)
-* [What I used](#tech)
-* [Demo](#demo)
+- [Description](#desc)
+- [What I used](#tech)
+- [Demo](#demo)
 
 ## <a name="dec"></a> Description
 
@@ -16,8 +16,8 @@ The website is fully responsive (built with mobile first in mind) to allow explo
 
 The National Stroll was created using HTML5, CSS3, [Materialize CSS](https://materializecss.com/), JavaScript, jQuery, [Leaflet JS](https://leafletjs.com/) (utilizing GeoJSON) and the [Wikipedia API](https://www.mediawiki.org/wiki/API:Main_page).
 
-
 ## <a name="demo"></a>Demo
+
 https://sam-pop.github.io/nationalStroll
 
 [![The National Stroll Screenshot](https://s22.postimg.cc/ugvrwrqk1/the_National_Stroll.png)](https://sam-pop.github.io/nationalStroll)
@@ -31,5 +31,5 @@ https://sam-pop.github.io/nationalStroll
 #### Future development
 
 - Add search functionality to the map.
-- Add the user current location on the map.
-- Add a list of all existing POIs. 
+- ~Add the user current location on the map.~
+- Add a list of all existing POIs.
