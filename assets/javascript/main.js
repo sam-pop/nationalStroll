@@ -1,28 +1,18 @@
 // Variables
-var baseCoords = [38.889463, -77.035146];
-var mymap = L.map("mapid").setView(baseCoords, 16);
+const baseCoords = [38.889463, -77.035146];
+const mymap = L.map("mapid").setView(baseCoords, 16);
 
 // Bathroom custom icon
-var bathroomIcon = L.icon({
+const bathroomIcon = L.icon({
   iconUrl: "./assets/images/bathroomRed.png",
   shadowUrl: "",
   iconSize: [30, 30], // size of the icon
   iconAnchor: [15, 30], // point of the icon which will correspond to marker's location
   popupAnchor: [0, -20] // point from which the popup should open relative to the iconAnchor
 });
-// Current location custom icon
-var currentLocIcon = L.icon({
-  iconUrl: "./assets/images/map-marker-person.png",
-  iconSize: [38, 42],
-  iconAnchor: [20, 36],
-  popupAnchor: [0, -40],
-  shadowUrl: "",
-  shadowSize: [68, 95],
-  shadowAnchor: [22, 94]
-});
 
 // National mall polygon
-var nationalMallPoly = L.polygon([
+const nationalMallPoly = L.polygon([
   [38.892239, -77.052317],
   [38.888548, -77.052666],
   [38.885876, -77.049817],
@@ -32,9 +22,6 @@ var nationalMallPoly = L.polygon([
   [38.887579, -77.014342],
   [38.892089, -77.014761]
 ]);
-
-// Add the NM polygon to the map
-// nationalMallPoly.addTo(mymap);
 
 // Creating the base tile Layer and adding it to the map
 L.tileLayer(
@@ -50,13 +37,33 @@ L.tileLayer(
   }
 ).addTo(mymap);
 
+// Use the current user location (using `leaflet-locatecontrol` control and locate method)
+L.control
+  .locate({
+    position: "topleft",
+    flyTo: true,
+    keepCurrentZoomLevel: true,
+    returnToPrevBounds: true,
+    strings: {
+      popup: "You are HERE!"
+    },
+    locateOptions: {
+      watch: true,
+      enableHighAccuracy: true
+    },
+    onLocationError: function(e) {
+      alert(e.message);
+    }
+  })
+  .addTo(mymap);
+
 // Creating layer groups
-var lgWest = L.layerGroup();
-var lgEast = L.layerGroup();
-var lgBathroom = L.layerGroup();
+const lgWest = L.layerGroup();
+const lgEast = L.layerGroup();
+const lgBathroom = L.layerGroup();
 
 // Create the NM-West markers from the POI json file, bind their popups to the modals and add them to the map
-var NMwestMarkers = L.geoJSON(NMwest, {
+const NMwestMarkers = L.geoJSON(NMwest, {
   onEachFeature: function(feature, layer) {
     layer.addTo(lgWest);
     createModals(feature);
@@ -71,7 +78,7 @@ var NMwestMarkers = L.geoJSON(NMwest, {
 });
 
 // Create the NM-East markers from the POI json file, bind their popups to the modals and add them to the map
-var NMeastMarkers = L.geoJSON(NMeast, {
+const NMeastMarkers = L.geoJSON(NMeast, {
   onEachFeature: function(feature, layer) {
     layer.addTo(lgEast);
     createModals(feature);
@@ -86,7 +93,7 @@ var NMeastMarkers = L.geoJSON(NMeast, {
 });
 
 // Create the Public Bathrooms markers from the POI json file & bind their popups
-var publicBathrooms = L.geoJSON(bathrooms, {
+const publicBathrooms = L.geoJSON(bathrooms, {
   onEachFeature: function(feature, layer) {
     layer.addTo(lgBathroom);
     layer.bindPopup("<b>Public Restroom</b><br/>" + feature.properties.name);
@@ -99,7 +106,7 @@ var publicBathrooms = L.geoJSON(bathrooms, {
 });
 
 // Createing the Overlay controls
-var overlays = {
+const overlays = {
   West: lgWest,
   East: lgEast,
   Restrooms: lgBathroom
@@ -125,8 +132,8 @@ lgWest.addTo(mymap);
 lgEast.addTo(mymap);
 
 // Creating the modal (DOM) and fetching summary from Wikipedia API
-function createModals(feature) {
-  var apiURL =
+const createModals = feature => {
+  const apiURL =
     "https://en.wikipedia.org/w/api.php?format=json&action=query&pithumbsize=500&prop=extracts|pageimages&exintro=&explaintext=&titles=" +
     feature.properties.name;
   $.ajax({
@@ -137,15 +144,15 @@ function createModals(feature) {
       // on API success
 
       // accessing the relevent info
-      var page = data.query.pages;
-      var key = Object.keys(page)[0];
-      var summary = page[key].extract;
-      var picSrc = "";
+      let page = data.query.pages;
+      let key = Object.keys(page)[0];
+      let summary = page[key].extract;
+      let picSrc = "";
       if (page[key].thumbnail) picSrc = page[key].thumbnail.source;
 
       summary = summary.replace(/(?:\r\n|\r|\n)/g, "<br /><br />"); //replaces line breaks in the text with html line break
 
-      var modal = $("<div>")
+      let modal = $("<div>")
         .addClass("modal")
         .attr("id", feature.properties.modalID)
         .append([
@@ -192,7 +199,7 @@ function createModals(feature) {
       console.log("API ERROR, Fetching failed.");
     }
   });
-}
+};
 
 // DOCUMENT READY
 $(document).ready(function() {
@@ -216,42 +223,3 @@ $(document).ready(function() {
       "<a href='https://www.nps.gov/nama/planyourvisit/conditions.htm' target='_blank'><i class='tiny material-icons'>notifications</i>&nbsp;Click here for current Alerts & Conditions </a>"
   });
 }); // END OF document ready
-
-// Use the user current location
-function runCurrentLoc() {
-  // Show my current location
-  var myLoc = mymap.locate({
-    setView: false,
-    // maxZoom: 16,
-    watch: true,
-    enableHighAccuracy: true
-  });
-  function removeLocMarker() {
-    if (currentMarker) mymap.removeLayer(currentMarker);
-  }
-
-  // Current location success function
-  function onLocationFound(e) {
-    removeLocMarker;
-    var radius = e.accuracy / 2;
-    var currentMarker = L.marker(e.latlng, {
-      icon: currentLocIcon
-    });
-    setTimeout(function() {
-      currentMarker
-        .addTo(mymap)
-        .bindPopup("You are here!")
-        .openPopup();
-    }, 500);
-
-    //   L.circle(e.latlng, radius).addTo(mymap);
-  }
-
-  // Current location error function
-  function onLocationError(e) {
-    alert(e.message);
-  }
-
-  mymap.on("locationfound", onLocationFound);
-  mymap.on("locationerror", onLocationError);
-}
