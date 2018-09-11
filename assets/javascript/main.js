@@ -221,23 +221,29 @@ $(document).ready(function() {
 function runCurrentLoc() {
   // Show my current location
   var myLoc = mymap.locate({
-    setView: true,
+    setView: false,
     // maxZoom: 16,
     watch: true,
     enableHighAccuracy: true
   });
+  function removeLocMarker() {
+    if (currentMarker) mymap.removeLayer(currentMarker);
+  }
 
   // Current location success function
   function onLocationFound(e) {
-    //   mymap.removeLayer(currentMarker);
+    removeLocMarker;
     var radius = e.accuracy / 2;
     var currentMarker = L.marker(e.latlng, {
       icon: currentLocIcon
     });
-    currentMarker
-      .addTo(mymap)
-      .bindPopup("You are here!")
-      .openPopup();
+    setTimeout(function() {
+      currentMarker
+        .addTo(mymap)
+        .bindPopup("You are here!")
+        .openPopup();
+    }, 500);
+
     //   L.circle(e.latlng, radius).addTo(mymap);
   }
 
