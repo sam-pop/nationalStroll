@@ -30,6 +30,7 @@ https://sam-pop.github.io/nationalStroll
 
 #### Future development
 
-- Add search functionality to the map.
 - ~Add the user current location on the map.~
 - ~Add a list of all existing POIs.~
+- Add option to mark visited landmarks.
+- Add search functionality to the map.
