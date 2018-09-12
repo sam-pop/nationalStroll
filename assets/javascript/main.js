@@ -1,8 +1,8 @@
-// Variables
+// Global variables
 let landmarksArr = [];
 const baseCoords = [38.889463, -77.035146];
 const mymap = L.map("mapid").setView(baseCoords, 16);
-
+// ---------------------------------------------------
 // Bathroom custom icon
 const bathroomIcon = L.icon({
   iconUrl: "./assets/images/bathroomRed.png",
@@ -11,7 +11,7 @@ const bathroomIcon = L.icon({
   iconAnchor: [15, 30], // point of the icon which will correspond to marker's location
   popupAnchor: [0, -20] // point from which the popup should open relative to the iconAnchor
 });
-
+// ---------------------------------------------------
 // National mall polygon
 const nationalMallPoly = L.polygon([
   [38.892239, -77.052317],
@@ -23,6 +23,7 @@ const nationalMallPoly = L.polygon([
   [38.887579, -77.014342],
   [38.892089, -77.014761]
 ]);
+// ---------------------------------------------------
 
 // Creating the base tile Layer and adding it to the map
 L.tileLayer(
@@ -139,22 +140,24 @@ function createModals(feature) {
   const apiURL =
     "https://en.wikipedia.org/w/api.php?format=json&action=query&pithumbsize=500&prop=extracts|pageimages&exintro=&explaintext=&titles=" +
     feature.properties.name;
+  // GET resquest to the wikipedia API
   $.ajax({
     type: "GET",
     dataType: "jsonp",
     url: apiURL,
+    // on API success
     success: function(data) {
-      // on API success
-
-      // accessing the relevent info
+      // mapping the relevent info in the returned jsonp file
       let page = data.query.pages;
       let key = Object.keys(page)[0];
       let summary = page[key].extract;
       let picSrc = "";
       if (page[key].thumbnail) picSrc = page[key].thumbnail.source;
 
-      summary = summary.replace(/(?:\r\n|\r|\n)/g, "<br /><br />"); //replaces line breaks in the text with html line break
+      // replaces line breaks in the text with the <br> html tag
+      summary = summary.replace(/(?:\r\n|\r|\n)/g, "<br /><br />");
 
+      // creating our modal
       let modal = $("<div>")
         .addClass("modal")
         .attr("id", feature.properties.modalID)
@@ -194,17 +197,16 @@ function createModals(feature) {
                 )
             ])
         ]);
-
       $("#modals").append(modal);
     },
+    // on API error
     error: function() {
-      // on API error
       console.log("API ERROR, Fetching failed.");
     }
   });
 }
 
-// Dynamically generate a list of all our landmarks on the page
+// Generate a list of all our landmarks on the page
 function createLandmarkList() {
   // Remove duplicates
   uniqueLandmarksArr = landmarksArr.filter(function(item, pos, self) {
@@ -225,10 +227,13 @@ function createLandmarkList() {
   $("#POIs").html(list);
 }
 
+// ---------------------------------------------------
 // Hide the landmark list section
 $("#onBtnClick").hide();
+// ---------------------------------------------------
 
 // DOCUMENT READY
+// ---------------------------------------------------
 $(document).ready(function() {
   createLandmarkList();
 
@@ -257,14 +262,17 @@ $(document).ready(function() {
     });
   }
 
+  // EventListener on the `landmarks list` button
   $("#poiBtn").on("click", function(e) {
-    // Changes the button text onclick
-    if ($("#poiBtn").text() != "HIDE") {
-      $("#poiBtn").text("HIDE");
+    // Changes the button text onclick AND toggle the list display
+    if ($("#poiBtn").text() != "HIDE LIST") {
+      $("#poiBtn").html("HIDE LIST");
       $("#onBtnClick").show();
     } else {
       $("#poiBtn").text("Show landmarks list");
       $("#onBtnClick").hide();
     }
   });
-}); // END OF document ready
+});
+// ---------------------------------------------------
+// END OF document ready
