@@ -72,7 +72,8 @@ footer {
 }
 
 .modal {
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
 
