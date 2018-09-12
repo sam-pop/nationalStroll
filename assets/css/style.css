@@ -165,10 +165,12 @@ label {
   background-color: rgb(170, 67, 67);
   /* pad  ding: 1%; */
 }
+#onBtnClick {
+  text-align: center;
+}
 
 .twoTextColumns {
   font-style: italic;
-  text-align: center;
   column-count: 2;
   -webkit-column-count: 2;
   -moz-column-count: 2;

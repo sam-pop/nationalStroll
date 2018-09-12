@@ -225,8 +225,10 @@ function createLandmarkList() {
   $("#POIs").html(list);
 }
 
-// DOCUMENT READY
+// Hide the landmark list section
 $("#onBtnClick").hide();
+
+// DOCUMENT READY
 $(document).ready(function() {
   createLandmarkList();
 
@@ -243,12 +245,17 @@ $(document).ready(function() {
     $("#poiBtn").removeClass("pulse");
   }, 4500);
 
-  // Current conditions toast
-  M.toast({
-    classes: "alertToast",
-    html:
-      "<a href='https://www.nps.gov/nama/planyourvisit/conditions.htm' target='_blank'><i class='tiny material-icons'>notifications</i>&nbsp;Click here for current Alerts & Conditions </a>"
-  });
+  // Responsive functionality based on windows size
+  if ($(window).width() < 667) {
+    // Landmark list in only one column
+    $("#POIs").removeClass("twoTextColumns");
+    // Current conditions toast
+    M.toast({
+      classes: "alertToast",
+      html:
+        "<a href='https://www.nps.gov/nama/planyourvisit/conditions.htm' target='_blank'><i class='tiny material-icons'>notifications</i>&nbsp;Click here for current Alerts & Conditions </a>"
+    });
+  }
 
   $("#poiBtn").on("click", function(e) {
     // Changes the button text onclick
