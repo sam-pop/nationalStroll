@@ -168,6 +168,7 @@ label {
 }
 #onBtnClick {
   text-align: center;
+  display: none;
 }
 
 .twoTextColumns {
@@ -179,4 +180,16 @@ label {
   -webkit-column-gap: 20px;
   -moz-column-gap: 20px;
   column-gap: 20px;
+}
+
+.red {
+  color: darkred;
+}
+
+.green {
+  color: green;
+}
+
+.visited:hover {
+  cursor: pointer;
 }

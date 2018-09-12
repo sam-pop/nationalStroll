@@ -1,5 +1,6 @@
 // Global variables
 let landmarksArr = [];
+let visited = [];
 const baseCoords = [38.889463, -77.035146];
 const mymap = L.map("mapid").setView(baseCoords, 16);
 // ---------------------------------------------------
@@ -237,11 +238,6 @@ function createLandmarkList() {
   $("#POIs").html(list);
 }
 
-// ---------------------------------------------------
-// Hide the landmark list section
-$("#onBtnClick").hide();
-// ---------------------------------------------------
-
 // DOCUMENT READY
 // ---------------------------------------------------
 $(document).ready(function() {
@@ -277,12 +273,36 @@ $(document).ready(function() {
     // Changes the button text onclick AND toggle the list display
     if ($("#poiBtn").text() != "HIDE LIST") {
       $("#poiBtn").html("HIDE LIST");
-      $("#onBtnClick").show();
+      $("#onBtnClick")
+        .removeClass("fadeOutUp")
+        .addClass("animated fadeInDown")
+        .show();
     } else {
+      $("#onBtnClick")
+        .removeClass("fadeInDown")
+        .addClass("fadeOutUp");
+      setTimeout(function() {
+        $("#onBtnClick").hide();
+      }, 500);
       $("#poiBtn").text("Show landmarks list");
-      $("#onBtnClick").hide();
     }
   });
+
+  // $(document).on("click", ".visited", function(e) {
+  //   let id = $(this).data("id");
+  //   let exists = false;
+  //   for (v of visited) {
+  //     if (v.indexOf(id) > -1) {
+  //       exists = true;
+  //     }
+  //   }
+  //   if (!exists) {
+  //     visited.push($(this).data("id"));
+  //     $(this).text("VISITED");
+  //     $(this).css({ "font-weight": "bold" });
+  //     $(this).toggleClass("green");
+  //   }
+  // });
 });
 // ---------------------------------------------------
 // END OF document ready
