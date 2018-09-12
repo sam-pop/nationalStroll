@@ -204,10 +204,18 @@ function createModals(feature) {
   });
 }
 
+// Dynamically generate a list of all our landmarks on the page
 function createLandmarkList() {
+  // Remove duplicates
+  uniqueLandmarksArr = landmarksArr.filter(function(item, pos, self) {
+    return self.indexOf(item) == pos;
+  });
+  // Sort the new array
+  uniqueLandmarksArr.sort();
+  // Creates a list of the landmark names with links to the correlating wikipedia page
   let wikiUrl = "https://en.wikipedia.org/wiki/";
   let list = $("<ul>");
-  for (poi of landmarksArr) {
+  for (poi of uniqueLandmarksArr) {
     list.append(
       $("<li>").html(
         "<a target='_blank' href='" + wikiUrl + poi + "'>" + poi + "</a>"
@@ -218,8 +226,8 @@ function createLandmarkList() {
 }
 
 // DOCUMENT READY
+$("#onBtnClick").hide();
 $(document).ready(function() {
-  $("#POIs").hide();
   createLandmarkList();
 
   // Change the zoom level for smaller screens (zoom-out)
@@ -246,10 +254,10 @@ $(document).ready(function() {
     // Changes the button text onclick
     if ($("#poiBtn").text() != "HIDE") {
       $("#poiBtn").text("HIDE");
-      $("#POIs").show();
+      $("#onBtnClick").show();
     } else {
       $("#poiBtn").text("Show landmarks list");
-      $("#POIs").hide();
+      $("#onBtnClick").hide();
     }
   });
 }); // END OF document ready

@@ -161,6 +161,7 @@ label {
 }
 
 .twoTextColumns {
+  font-style: italic;
   text-align: center;
   column-count: 2;
   -webkit-column-count: 2;
