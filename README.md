@@ -32,4 +32,4 @@ https://sam-pop.github.io/nationalStroll
 
 - Add search functionality to the map.
 - ~Add the user current location on the map.~
-- Add a list of all existing POIs.
+- ~Add a list of all existing POIs.~
