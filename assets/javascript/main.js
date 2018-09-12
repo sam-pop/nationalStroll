@@ -240,7 +240,7 @@ $(document).ready(function() {
   }, 1500);
 
   setTimeout(function() {
-    $("#locBtn").removeClass("pulse");
+    $("#poiBtn").removeClass("pulse");
   }, 4500);
 
   // Current conditions toast

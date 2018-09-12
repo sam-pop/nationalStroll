@@ -42,6 +42,12 @@ body {
   font-size: 16px;
 }
 
+hr {
+  /* color: rgb(170, 67, 67, 0.3); */
+  opacity: 0.1;
+  max-width: 55%;
+}
+
 a {
   color: rgb(170, 67, 67);
 }
