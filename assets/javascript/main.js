@@ -1,4 +1,5 @@
 // Variables
+let landmarksArr = [];
 const baseCoords = [38.889463, -77.035146];
 const mymap = L.map("mapid").setView(baseCoords, 16);
 
@@ -65,6 +66,7 @@ const lgBathroom = L.layerGroup();
 // Create the NM-West markers from the POI json file, bind their popups to the modals and add them to the map
 const NMwestMarkers = L.geoJSON(NMwest, {
   onEachFeature: function(feature, layer) {
+    landmarksArr.push(feature.properties.name);
     layer.addTo(lgWest);
     createModals(feature);
     layer.bindPopup(
@@ -80,6 +82,7 @@ const NMwestMarkers = L.geoJSON(NMwest, {
 // Create the NM-East markers from the POI json file, bind their popups to the modals and add them to the map
 const NMeastMarkers = L.geoJSON(NMeast, {
   onEachFeature: function(feature, layer) {
+    landmarksArr.push(feature.properties.name);
     layer.addTo(lgEast);
     createModals(feature);
     layer.bindPopup(
@@ -201,8 +204,24 @@ function createModals(feature) {
   });
 }
 
+function createLandmarkList() {
+  let wikiUrl = "https://en.wikipedia.org/wiki/";
+  let list = $("<ul>");
+  for (poi of landmarksArr) {
+    list.append(
+      $("<li>").html(
+        "<a target='_blank' href='" + wikiUrl + poi + "'>" + poi + "</a>"
+      )
+    );
+  }
+  $("#POIs").html(list);
+}
+
 // DOCUMENT READY
 $(document).ready(function() {
+  $("#POIs").hide();
+  createLandmarkList();
+
   // Change the zoom level for smaller screens (zoom-out)
   if ($(window).width() < 667) mymap.setView(baseCoords, 15);
 
@@ -221,5 +240,16 @@ $(document).ready(function() {
     classes: "alertToast",
     html:
       "<a href='https://www.nps.gov/nama/planyourvisit/conditions.htm' target='_blank'><i class='tiny material-icons'>notifications</i>&nbsp;Click here for current Alerts & Conditions </a>"
+  });
+
+  $("#poiBtn").on("click", function(e) {
+    // Changes the button text onclick
+    if ($("#poiBtn").text() != "HIDE") {
+      $("#poiBtn").text("HIDE");
+      $("#POIs").show();
+    } else {
+      $("#poiBtn").text("Show landmarks list");
+      $("#POIs").hide();
+    }
   });
 }); // END OF document ready

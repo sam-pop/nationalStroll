@@ -155,7 +155,18 @@ label {
   color: rgb(36, 36, 36);
 }
 
-#locBtn {
-  background-color:  rgb(170, 67, 67);
-    /* pad  ding: 1%; */
+#poiBtn {
+  background-color: rgb(170, 67, 67);
+  /* pad  ding: 1%; */
+}
+
+.twoTextColumns {
+  text-align: center;
+  column-count: 2;
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+
+  -webkit-column-gap: 20px;
+  -moz-column-gap: 20px;
+  column-gap: 20px;
 }
