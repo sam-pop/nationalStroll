@@ -71,11 +71,14 @@ const NMwestMarkers = L.geoJSON(NMwest, {
     layer.addTo(lgWest);
     createModals(feature);
     layer.bindPopup(
-      feature.properties.name +
-        "<br>" +
-        "<a class='waves-effect waves-light modal-trigger' href='#" +
-        feature.properties.modalID +
-        "'><b>Click here for more info</b></a>"
+      `${feature.properties.name}
+      <br>
+      <a class='waves-effect waves-light modal-trigger' 
+      href='#${feature.properties.modalID}'>
+      <b>
+        Click here for more info
+      </b>
+      </a>`
     );
   }
 });
@@ -87,11 +90,14 @@ const NMeastMarkers = L.geoJSON(NMeast, {
     layer.addTo(lgEast);
     createModals(feature);
     layer.bindPopup(
-      feature.properties.name +
-        "<br>" +
-        "<a class='waves-effect waves-light modal-trigger' href='#" +
-        feature.properties.modalID +
-        "'><b>Click here for more info</b></a>"
+      `${feature.properties.name}
+      <br>
+      <a class='waves-effect waves-light modal-trigger' 
+      href='#${feature.properties.modalID}'>
+      <b>
+        Click here for more info
+      </b>
+      </a>`
     );
   }
 });
@@ -100,7 +106,11 @@ const NMeastMarkers = L.geoJSON(NMeast, {
 const publicBathrooms = L.geoJSON(bathrooms, {
   onEachFeature: function(feature, layer) {
     layer.addTo(lgBathroom);
-    layer.bindPopup("<b>Public Restroom</b><br/>" + feature.properties.name);
+    layer.bindPopup(
+      `<b>Public Restroom</b>
+      <br/>
+      ${feature.properties.name}`
+    );
   },
   pointToLayer: function(geoJsonPoint, latlng) {
     return L.marker(latlng, {
@@ -191,9 +201,11 @@ function createModals(feature) {
                   "font-style": "italic"
                 })
                 .html(
-                  "Source: <a href='https://en.wikipedia.org/wiki/" +
-                    feature.properties.name +
-                    "' target='_blank'>Wikipedia.org</a>"
+                  `Source: 
+                  <a href='https://en.wikipedia.org/wiki/ 
+                  ${feature.properties.name}' target='_blank'>
+                    Wikipedia.org
+                  </a>`
                 )
             ])
         ]);
@@ -219,9 +231,7 @@ function createLandmarkList() {
   let list = $("<ul>");
   for (poi of uniqueLandmarksArr) {
     list.append(
-      $("<li>").html(
-        "<a target='_blank' href='" + wikiUrl + poi + "'>" + poi + "</a>"
-      )
+      $("<li>").html(`<a target='_blank' href='${wikiUrl}${poi}'>${poi}</a>`)
     );
   }
   $("#POIs").html(list);
