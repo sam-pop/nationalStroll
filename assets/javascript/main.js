@@ -74,7 +74,7 @@ const NMwestMarkers = L.geoJSON(NMwest, {
     layer.bindPopup(
       `${feature.properties.name}
       <br>
-      <a class='waves-effect waves-light modal-trigger' 
+      <a class='waves-effect waves-light modal-trigger'
       href='#${feature.properties.modalID}'>
       <b>
         Click here for more info
@@ -93,7 +93,7 @@ const NMeastMarkers = L.geoJSON(NMeast, {
     layer.bindPopup(
       `${feature.properties.name}
       <br>
-      <a class='waves-effect waves-light modal-trigger' 
+      <a class='waves-effect waves-light modal-trigger'
       href='#${feature.properties.modalID}'>
       <b>
         Click here for more info
@@ -202,8 +202,8 @@ function createModals(feature) {
                   "font-style": "italic"
                 })
                 .html(
-                  `Source: 
-                  <a href='https://en.wikipedia.org/wiki/ 
+                  `Source:
+                  <a href='https://en.wikipedia.org/wiki/
                   ${feature.properties.name}' target='_blank'>
                     Wikipedia.org
                   </a>`
@@ -211,6 +211,9 @@ function createModals(feature) {
             ])
         ]);
       $("#modals").append(modal);
+      // init the materialize modal & materialbox
+      $(".modal").modal();
+      $(".materialboxed").materialbox();
     },
     // on API error
     error: function() {
@@ -241,17 +244,13 @@ function createLandmarkList() {
 // DOCUMENT READY
 // ---------------------------------------------------
 $(document).ready(function() {
+  // Create the landmark list
   createLandmarkList();
 
   // Change the zoom level for smaller screens (zoom-out)
   if ($(window).width() < 667) mymap.setView(baseCoords, 15);
 
-  // Init materialize modal & materialbox (with a delay to let the createModals function time to finish manipulating the DOM)
-  setTimeout(function() {
-    $(".modal").modal();
-    $(".materialboxed").materialbox();
-  }, 1500);
-
+  // Stop the button pulse animation
   setTimeout(function() {
     $("#poiBtn").removeClass("pulse");
   }, 4500);
