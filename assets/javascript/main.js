@@ -28,7 +28,7 @@ const nationalMallPoly = L.polygon([
 
 // Creating the base tile Layer and adding it to the map
 L.tileLayer(
-  "https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/tiles/1/1/0?access_token==pk.eyJ1Ijoic2FtLXBvcCIsImEiOiJjamhucjhhNXgwNTE0MzZwYWQxenprNG5kIn0.9c-GiLb45NYrZeAiy3TZ6w",
+  "https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/tiles/1/1/0?access_token=pk.eyJ1Ijoic2FtLXBvcCIsImEiOiJjamhucjhhNXgwNTE0MzZwYWQxenprNG5kIn0.9c-GiLb45NYrZeAiy3TZ6w",
   {
     attribution:
       'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
